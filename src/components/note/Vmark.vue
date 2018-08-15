@@ -1,27 +1,63 @@
 <template>
     <div class="wrap">
+      请输入新密码:<input type="text" name="" v-model="titleHangler">
+      <button class="btn btn-success" @click="addone">提交</button>
       <div class="mark">
-        <textarea rows="10" cols="100" class="editor" v-model="markValue">
+        <textarea rows="10" cols="100" class="editor" v-model="markValue" >
 
         </textarea>
-        <div class="show" v-html="currentValue"></div>
+        <div class="show" v-html="currentValue" ref="t"></div>
       </div>
     </div>
 </template>
 
 <script>
+    import $ from 'jquery'
     import Marked from 'marked'
     export default {
         name: "Vmark",
       data() {
       return {
-        markValue:''
+        markValue:'',
       }
     },
+      methods:{
+         addone(){
+                 var json={
+                   password:this.titleHangler
+                 }
+         // console.log(this.$refs.t.innerText)
+           console.log(json)
+           $.ajax({
+             url:'http://127.0.0.1:8000/api/v1/userinfo/',
+            method: 'POST',
+            dataType:'json',
+             data:json,
+             // contentType: "application/x-www-form-urlencoded",
+             success:function (data) {
+               console.log(data)
+             },
+             error:function (error) {
+               console.log(error)
+             }
+           })
+         }
+
+      },
       computed:{
+          titleHangler:{
+            set:function (newValue) {
+                this.$store.state.note.password=newValue;
+              console.log(this.$store.state.note.password);
+            },
+            get:function () {
+                return this.$store.state.note.password;
+            },
+          },
           currentValue(){
              return Marked(this.markValue);
           }
+
 
       }
     }

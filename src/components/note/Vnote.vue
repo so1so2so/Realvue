@@ -14,7 +14,7 @@
       <div class="col-md-9">
         <div class="panel panel-default">
           <div class="panel-heading">
-            请输入文章标题:<input type="text" name="">
+
           </div>
           <div class="panel-body">
             <Vmark></Vmark>

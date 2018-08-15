@@ -10,6 +10,10 @@ const store = new Vuex.Store({
   state: {
     //这里的状态和每个组件的数据属性有关系(data)
     alllist:[],
+    note:{
+      password:'',
+
+    },
     count: 0
   },
   mutations: {

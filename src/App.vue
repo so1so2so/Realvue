@@ -19,7 +19,7 @@ export default {
      var _this=this;
       $.ajax({
         url:'http://127.0.0.1:8000/api/v1/userinfo/',
-        methods:'get',
+        method:'get',
         dataType: 'json',
         success:function (data) {
           // console.log(data);
