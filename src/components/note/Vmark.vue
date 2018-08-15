@@ -2,6 +2,7 @@
     <div class="wrap">
       请输入新密码:<input type="text" name="" v-model="titleHangler">
       <button class="btn btn-success" @click="addone">提交</button>
+        <el-button type="warning" plain round>危险按钮</el-button>
       <div class="mark">
         <textarea rows="10" cols="100" class="editor" v-model="markValue" >
 
@@ -28,7 +29,8 @@
                  };
          // console.log(this.$refs.t.innerText)
          //   console.log(json);
-           this.$store.commit('changepassword',json)
+         //   this.$store.commit('changepassword',json)
+           this.$store.dispatch("changepassword",json)
 
          }
 

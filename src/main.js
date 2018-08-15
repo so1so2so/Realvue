@@ -5,8 +5,11 @@ import App from './App'
 import router from './router'
 import Vuex from "vuex"
 import $ from 'jquery'
-
-Vue.use(Vuex)
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+// Vue.use(ElementUI);
+Vue.use(ElementUI, { size: 'small', zIndex: 3000 });
+Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
@@ -23,35 +26,59 @@ const store = new Vuex.Store({
     // increment (state) {
     //   state.count++
     // }
-    getAlldatas(state) {
+    GetAlldatas(state,data) {
+          state.alllist=data
+    },
+    ChangePassword(state, data) {
+      // mutations 方式
+      // $.ajax({
+      //   url: 'http://127.0.0.1:8000/api/v1/userinfo/',
+      //   method: 'POST',
+      //   dataType: 'json',
+      //   data: json,
+      //   // contentType: "application/x-www-form-urlencoded",
+      //   success: function (data) {
+      //     console.log(data);
+      //     state.alllist = data
+      //   },
+      //   error: function (error) {
+      //     console.log(error)
+      //   }
+      // })
+    state.alllist = data
+    }
+  },
+  actions: {
+    getalldatas(context) {
       $.ajax({
         url: 'http://127.0.0.1:8000/api/v1/userinfo/',
         method: 'get',
         dataType: 'json',
         success: function (data) {
           // console.log(data);
-          console.log(this);
-          state.alllist = data
+          // console.log(this);
+          context.commit('GetAlldatas',data)
+          // state.alllist = data
           // console.log(_this.$store.state.alllist)
         }
-      })
+      });
+
     },
-    changepassword(state,json) {
+    changepassword(context,return_data) {
       $.ajax({
         url: 'http://127.0.0.1:8000/api/v1/userinfo/',
         method: 'POST',
         dataType: 'json',
-        data: json,
+        data: return_data,
         // contentType: "application/x-www-form-urlencoded",
-        success: function (data) {
-          console.log(data);
-          state.alllist = data
+        success: function (rescive_data) {
+          // console.log(data);
+          context.commit('ChangePassword',rescive_data)
         },
         error: function (error) {
-          console.log(error)
+          // console.log(error)
         }
       })
-
     }
   }
 })

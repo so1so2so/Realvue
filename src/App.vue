@@ -16,7 +16,10 @@ export default {
   },
   //页面加载完毕后,在这里请求数据
   mounted(){
-          this.$store.commit('getAlldatas')
+    //触发mutations
+    //       this.$store.commit('GetAlldatas');
+    //触发actions
+     this.$store.dispatch("getalldatas")
   }
 }
 </script>

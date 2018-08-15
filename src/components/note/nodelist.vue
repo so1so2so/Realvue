@@ -18,6 +18,7 @@
       computed:{
           getalldate(){
             return this.$store.state.alllist;
+
           }
       }
     }

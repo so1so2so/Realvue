@@ -27,7 +27,8 @@
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Search">
           </div>
-          <button type="submit" class="btn btn-default">Submit</button>
+           <el-button icon="el-icon-search" circle></el-button>
+          <!--<button type="submit" class="btn btn-default">Submit</button>-->
         </form>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
