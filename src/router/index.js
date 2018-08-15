@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import Vmain from '@/components/Vmain'
-import Vnote from '@/components/Vnote'
+import Vnote from '@/components/note/Vnote'
 
 Vue.use(Router);
 

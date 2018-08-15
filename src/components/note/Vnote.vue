@@ -4,10 +4,10 @@
       <div class="col-md-3">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title">我的笔记列表</h3>
+            <h3 class="panel-title">我是note</h3>
           </div>
           <div class="panel-body">
-            笔记列表
+            <Vnoteshow></Vnoteshow>
           </div>
         </div>
       </div>
@@ -32,6 +32,10 @@
     name: "Vnote",
     data() {
       return {
+        datelist:[
+          {id:1,title:"Python",content:"Python自动化运维"},
+          {id:1,title:"Linux",content:"Linux运维"},
+        ]
       }
     },
     components:{

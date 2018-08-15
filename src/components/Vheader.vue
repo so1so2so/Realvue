@@ -19,8 +19,7 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li v-for="(items,index) in routes" :class="{active:index==instanceindex}"
-          @click="click(index)">
+          <li v-for="(items,index) in routes" :class="{active:index==instanceindex}"   @click="click(index)">
             <router-link :to="items.url">{{items.title}}</router-link>
           </li>
         </ul>
