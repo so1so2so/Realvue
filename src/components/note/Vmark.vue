@@ -25,22 +25,11 @@
          addone(){
                  var json={
                    password:this.titleHangler
-                 }
+                 };
          // console.log(this.$refs.t.innerText)
-           console.log(json)
-           $.ajax({
-             url:'http://127.0.0.1:8000/api/v1/userinfo/',
-            method: 'POST',
-            dataType:'json',
-             data:json,
-             // contentType: "application/x-www-form-urlencoded",
-             success:function (data) {
-               console.log(data)
-             },
-             error:function (error) {
-               console.log(error)
-             }
-           })
+         //   console.log(json);
+           this.$store.commit('changepassword',json)
+
          }
 
       },
